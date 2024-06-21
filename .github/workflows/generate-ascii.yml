@@ -10,9 +10,20 @@ jobs:
     steps:
       - name: Checkout own repo
         uses: actions/checkout@v4.1.7        
-        
-      - name: Ship it
-        uses: mscoutermarsh/cowsays-action@master
-        with:
-          text: 'ship ship ship!'
-          color: 'red'
+
+    #   - name: Ship it
+    #     uses: mscoutermarsh/cowsays-action@master
+    #     with:
+    #       text: 'ship ship ship!'
+    #       color: 'red'
+      - name: Install cowsay
+        run: sudo apt-get install cowsay -y
+
+      - name: Execute Cowsay command
+        run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR">> dragon.txt
+      - name: test file exists or not
+        run: grep -i "dragon" dragon.txt
+      - name: Read File
+        run: cat dragon.txt
+      - name: list all repo file
+        run: ls -ltra
