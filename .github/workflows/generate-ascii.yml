@@ -1,0 +1,18 @@
+name: Cowsays
+
+on:
+  push
+
+jobs:
+  Ascii_job:
+    name: Cowsays
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout own repo
+        uses: actions/checkout@v4.1.7        
+        
+      - name: Ship it
+        uses: mscoutermarsh/cowsays-action@master
+        with:
+          text: 'ship ship ship!'
+          color: 'red'
