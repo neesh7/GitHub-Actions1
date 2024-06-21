@@ -17,3 +17,13 @@ jobs:
 
       - name: Read File
         run: cat README.md
+
+        # as it is yaml to write multi line command we have to use Pipe character
+      - name: Running multiple command at once
+        run: |
+          echo "Hello World !"
+          cat README.md
+          ls -l
+
+      - name: Generate ASCII Artwork
+        run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR">> dragon.txt
