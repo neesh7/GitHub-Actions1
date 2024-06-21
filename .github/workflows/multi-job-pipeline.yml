@@ -1,0 +1,39 @@
+name: Cowsays
+
+on:
+  push
+
+jobs:
+  Job1:
+    name: Build-Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout own repo
+        uses: actions/checkout@v4.1.7        
+
+      - name: Install cowsay
+        run: sudo apt-get install cowsay -y
+
+      - name: Execute Cowsay command
+        run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR">> dragon.txt
+      - name: test file exists or not
+        run: grep -i "dragon" dragon.txt
+      - name: Read File
+        run: cat dragon.txt
+      - name: list all repo file
+        run: ls -ltra
+  Job2:
+    name: Test-Job
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout own repo
+          uses: actions/checkout@v4.1.7 
+        - name: Test job
+          run: grep -i "dragon" dragon.txt
+  
+  Job3:
+    name: Deploy-job
+    runs-on: ubuntu-latest
+    steps:
+        - name: deploying
+          run: echo "deploying ......"
