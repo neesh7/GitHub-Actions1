@@ -16,14 +16,21 @@ jobs:
     #     with:
     #       text: 'ship ship ship!'
     #       color: 'red'
-      - name: Install cowsay
-        run: sudo apt-get install cowsay -y
+    #   - name: Install cowsay
+    #     run: sudo apt-get install cowsay -y
 
-      - name: Execute Cowsay command
-        run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR">> dragon.txt
-      - name: test file exists or not
-        run: grep -i "dragon" dragon.txt
-      - name: Read File
-        run: cat dragon.txt
-      - name: list all repo file
+    #   - name: Execute Cowsay command
+    #     run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR">> dragon.txt
+    #   - name: test file exists or not
+    #     run: grep -i "dragon" dragon.txt
+    #   - name: Read File
+    #     run: cat dragon.txt
+    #   - name: list all repo file
+    #     run: ls -ltra
+
+
+    # Running all above steps using a shell script
+      - name: List all files in Repo
         run: ls -ltra
+      - name: Executing shell script
+        run: ./ascii-script.sh
