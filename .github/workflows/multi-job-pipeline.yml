@@ -43,8 +43,8 @@ jobs:
             name: dragon-text-file
             path: dragon.txt
 
-        - name: Display structure of downloaded files
-          run: ls -R your/destination/dir
+        # - name: Display structure of downloaded files
+        #   run: ls -R your/destination/dir
         
         - name: Test job
           run: grep -i "dragon" dragon.txt
@@ -60,8 +60,8 @@ jobs:
           name: dragon-text-file
           path: dragon.txt
 
-      - name: Display structure of downloaded files
-        run: ls -R your/destination/dir
+      # - name: Display structure of downloaded files
+      #   run: ls -R your/destination/dir
       
       - name: deploying
         run: echo "deploying ......"
