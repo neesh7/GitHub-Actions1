@@ -33,13 +33,18 @@ jobs:
 
   deploy:
     needs: build
+    timeout-minutes: 5  # This is job-leve timeout
     runs-on: ubuntu-latest
     # Added Job Concurrency to cancel if any pipeline running the same deploy job
     concurrency: 
       group: production-deployment
+      # if we put cancel as true then it will cancel any existing build
+      # if we put cancel as false then it will wait till the old build is completed
       cancel-in-progress: true
     steps:
+
       - uses: actions/checkout@v4
 
       - name: sleep for 10min
+        timeout-minutes: 300 # This is step-level timeout
         run: sleep 180
