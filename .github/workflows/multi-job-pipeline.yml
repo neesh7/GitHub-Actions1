@@ -15,53 +15,53 @@ jobs:
         run: sudo apt-get install cowsay -y
 
       - name: Execute Cowsay command
-        run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR">> dragon.txt
-      - name: test file exists or not
+        run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR" >> dragon.txt
+        
+      - name: Test file exists or not
         run: grep -i "dragon" dragon.txt
+
       - name: Read File
         run: cat dragon.txt
-      - name: list all repo file
+
+      - name: List all repo files
         run: ls -ltra
 
       - name: Upload dragon file
         uses: actions/upload-artifact@v4
         with:
           name: dragon-text-file
-          path: dragon.txt # or path/to/artifact
+          path: dragon.txt
 
   Job2:
     name: Test-Job
     runs-on: ubuntu-latest
     needs: Job1
     steps:
-        - name: Checkout own repo
-          uses: actions/checkout@v4.1.7
+      - name: Checkout own repo
+        uses: actions/checkout@v4.1.7
 
-        - name: Download-artifacts
-          uses: actions/download-artifact@v4
-          with:
-            name: dragon-text-file
-            path: dragon.txt
-
-        # - name: Display structure of downloaded files
-        #   run: ls -R your/destination/dir
-        
-        - name: Test job
-          run: grep -i "dragon" dragon.txt
-        
-  Job3:
-    name: Deploy-job
-    needs: [Job1,Job2]  # use ctrl + space to auto occur the jobs and we can give jobs in array also.
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download-artifacts
+      - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           name: dragon-text-file
           path: dragon.txt
 
-      # - name: Display structure of downloaded files
-      #   run: ls -R your/destination/dir
+      - name: Test job
+        run: grep -i "dragon" dragon.txt
+
+  Job3:
+    name: Deploy-job
+    needs: [Job1, Job2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dragon-text-file
+          path: dragon.txt
       
-      - name: deploying
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Deploying
         run: echo "deploying ......"
