@@ -18,16 +18,16 @@ jobs:
       # if we keep fail-fast as false then even if any one configuration fails build will continue
       fail-fast: false
       # using this we can control the no of jobs it runs at a time
-      max-parallel: 2
+      # max-parallel: 2
       matrix:
         os: [ubuntu-latest, ubuntu-20.04, windows-latest, mac-os]
         images: [hello-world, alpine]
         # As the alpine image fails on windows we will exclude it
         exclude:
-          - image: alpine
+          - images: alpine
             os: windows-latest
         include:
-          - image: amd64/alpine
+          - images: amd64/alpine
             os: ubuntu-20.04           
     runs-on: ${{matrix.os}}
 
