@@ -1,7 +1,7 @@
-name: Variables-check-pipeline
+name: Manual-trigger-pipeline
 # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 on:
-  push
+  workflow_dispatch: 
 # This a workflow level variable defination
 env:
   workflowvar: Neesh
