@@ -37,6 +37,8 @@ jobs:
     # Added Job Concurrency to cancel if any pipeline running the same deploy job
     concurrency: 
       group: production-deployment
+      # if we put cancel as true then it will cancel any existing build
+      # if we put cancel as false then it will wait till the old build is completed
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
