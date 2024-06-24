@@ -53,7 +53,7 @@ jobs:
   Job3:
     # added this expression so that deploy only runs on main
     name: Deploy-job
-    if: github.ref == 'refs/head/main'
+    if: github.ref == 'refs/heads/main'
     needs: [Job1, Job2]
     runs-on: ubuntu-latest
     steps:

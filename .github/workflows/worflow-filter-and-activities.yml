@@ -1,0 +1,31 @@
+name: Workflow Filters and Activities
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - '!feature/*'  # Ignore branches starting with 'feature/'
+    paths-ignore:
+      - README.md  # Ignore pushes that only change the README.md file
+  pull_request:
+    types:
+      - opened
+      - closed
+    branches:
+      - main  # Configure the workflow to only run on pull requests targeting the main branch
+    paths-ignore:
+      - README.md  # Ignore pull requests that only change the README.md file
+  # Uncomment and adjust the schedule if needed
+  # schedule:
+  #   - cron: '*/15 * * * *'  # Example cron syntax for running every 15 minutes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: echo hello
+        run: echo hello this is the Event name ${{ github.event_name }}
+
