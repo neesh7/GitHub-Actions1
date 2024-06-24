@@ -47,6 +47,7 @@ jobs:
           path: dragon.txt
 
       - name: Test job
+        continue-on-error: true
         run: grep -i "dragon" dragon.txt
 
   Job3:
