@@ -42,3 +42,5 @@ https://docs.github.com/en/actions/learn-github-actions/expressions
 https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs
 
 https://docs.github.com/en/rest/actions/workflow-jobs?apiVersion=2022-11-28
+
+https://github.blog/changelog/2021-11-10-github-actions-input-types-for-manual-workflows/

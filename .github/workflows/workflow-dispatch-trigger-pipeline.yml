@@ -1,0 +1,42 @@
+name: Manual-trigger-pipeline
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+on:
+  workflow_dispatch: 
+# This a workflow level variable defination
+env:
+  workflowvar: Neesh
+  messege1: This is a Workflow level level environment variable
+
+
+jobs:
+  Job1:
+    name: Build-Job
+    runs-on: ubuntu-latest
+    # This is a Job Level Environment Variable
+    env:
+      Developer: Neesh
+      messege: This is a Job level environment variable
+    steps:
+      - name: Checkout own repo
+        uses: actions/checkout@v4.1.7        
+
+        # This is example of step level env var declaration
+      - name: Echo step level environment variable
+        env:
+          UserName: Neesh
+          Role: Devops Engineer
+        run: |
+          echo $UserName is $Role
+          echo $Developer is $messege
+      
+      - name: Echo Job level environment variable
+        run: echo $Developer is $messege
+
+      - name: Echo Workflow level environment variable
+        run: |
+          echo $workflowvar is $messege1
+          echo ${{env.workflowvar}}
+      - name: Echo Repo level variable and secrets
+        run: |
+          echo ${{vars.REPO_DEVELOPER}}
+          echo ${{secrets.REPO_OWNER}}

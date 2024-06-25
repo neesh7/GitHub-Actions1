@@ -76,5 +76,5 @@ jobs:
           echo "Messege: ${{inputs.Messege}}"
       
       - name: print all workflow-inputs
-        if: ${{inputs.run-tests == 'true'}}
+        if: ${{inputs.run-tests == true}}
         run: echo "testing ........"
