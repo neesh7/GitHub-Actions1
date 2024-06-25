@@ -3,9 +3,12 @@ name: Workflow Filters and Activities
 on:
   workflow_dispatch:
   push:
-    branches:
+    branches: # we can't use branches and branch-ignore both at same time
       - main
-      - '!feature/*'  # Ignore branches starting with 'feature/'
+      - '!feature/*'  # Ignore branches starting with 'feature/' and we are doing that using !
+    # branches-ignore: 
+    #   - feature/*
+    #   - users/** # it will ignore these branches 
     paths-ignore:
       - README.md  # Ignore pushes that only change the README.md file
   pull_request:

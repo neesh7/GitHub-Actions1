@@ -29,5 +29,14 @@
 | ⭐Configure workflows to run for webhook events            | 06:15    |
 | ⭐Lab - Exploring Workflow Syntax - Part 2                | N/A      |
 
-
 #### Total required time 3h 50m
+
+#### Useful Links
+
+https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+
+https://docs.github.com/en/actions/learn-github-actions/contexts#runner-context
+
+https://docs.github.com/en/actions/learn-github-actions/expressions
+
+https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs
