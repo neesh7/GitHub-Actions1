@@ -75,6 +75,6 @@ jobs:
           echo "Build number: ${{inputs.Build-number}}"
           echo "Messege: ${{inputs.Messege}}"
       
-      - name: print all workflow-inputs
+      - name: do the testing if testing is true
         if: ${{inputs.run-tests == true}}
         run: echo "testing ........"
