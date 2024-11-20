@@ -1,8 +1,10 @@
 name: Multi-job-pipeline
 
+#on:
+# push
 on:
-  push
-
+  workflow_dispatch: 
+# This a workflow level variable defination
 jobs:
   Job1:
     name: Build-Job
